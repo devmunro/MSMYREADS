@@ -6,7 +6,7 @@ import SearchFilter from "./searchFilter";
 export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
   const [findBooks, setFindBooks] = useState([]);
   const [filterBooks, setFilterBooks] = useState([]);
-  const [disabled, setDisabled] = useState("false")
+  
 
 
 
@@ -15,7 +15,7 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
     const getResults = (query) => {
       if (query.length > 0) {
         BooksAPI.search(query).then((data) => {
-          if (data.error) {
+          if (data.error) { // could use instead !data.status === 200
             // too catch error
 
             setFilterBooks([]);
@@ -49,7 +49,7 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
     }
     
       })
-      console.log(filterBooks)
+      
 
   const handleChange = (e) => {
     setFindBooks(e.target.value);

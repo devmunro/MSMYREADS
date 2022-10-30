@@ -3,6 +3,7 @@ import SelectShelf from "../Shelves/selectShelf";
 const BookComponent = ({found, updateShelf}) => {
     return ( 
 
+   
 
 <li key={found.id}>
             <div className="book">
@@ -21,6 +22,7 @@ const BookComponent = ({found, updateShelf}) => {
               </div>
               <div className="book-title">{found.title ? found.title : "No title information"}</div>
               <div className="book-authors">{found.authors ? found.authors : "No author information"}</div>
+              
             </div>
           </li>
 

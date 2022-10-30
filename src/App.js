@@ -19,7 +19,7 @@ function App() {
     getAllBooks();
   }, [allBooks]);
 
-
+console.log(allBooks)
  
     const updateShelf = (bookID, shelf) => {
       const bookitem = allBooks.filter((find) => find.id !== bookID.id);
