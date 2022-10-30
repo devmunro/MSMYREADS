@@ -13,11 +13,12 @@ const SelectShelf = ({ found, updateShelf }) => {
   return (
     <div className="book-shelf-changer">
       <select value={shelfSelect} onChange={handleShelf}>
-        
-        <option value="currentlyReading" label="Currently" ></option>
+        <option value="currentlyReading" label="Currently"></option>
         <option value="wantToRead" label="Want to Read"></option>
         <option value="read" label="Read"></option>
-        <option value="none" defaultValue>None</option>
+        <option value="none" defaultValue>
+          None
+        </option>
       </select>
     </div>
   );

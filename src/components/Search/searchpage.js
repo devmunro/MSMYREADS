@@ -3,29 +3,21 @@ import { useEffect, useState } from "react";
 import CloseSearch from "./closeSearch";
 import SearchFilter from "./searchFilter";
 
-export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
+export const SearchBar = ({ setScreenPage, updateShelf, allBooks }) => {
   const [findBooks, setFindBooks] = useState([]);
   const [filterBooks, setFilterBooks] = useState([]);
-  
-
-
-
 
   useEffect(() => {
     const getResults = (query) => {
       if (query.length > 0) {
         BooksAPI.search(query).then((data) => {
-          if (data.error) { // could use instead !data.status === 200
+          if (data.error) {
+            // could use instead !data.status === 200
             // too catch error
 
             setFilterBooks([]);
           } else {
-
-
-            
-            
             setFilterBooks(data);
-            
           }
         });
       } else {
@@ -35,26 +27,20 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
     getResults(findBooks); //findbooks only
   }, [findBooks]); //findbooks only
 
-
-
-  allBooks.find((match) => {  //added this to stop duplication of books
+  allBooks.find((match) => {
+    //added this to stop duplication of books
 
     if (match.id === filterBooks.id) {
-     console.log("check here")
-      return  filterBooks.shelf = match.shelf
-       
+      console.log("check here");
+      return (filterBooks.shelf = match.shelf);
     } else {
-      return filterBooks.shelf = "none"
-    
+      return (filterBooks.shelf = "none");
     }
-    
-      })
-      
+  });
 
   const handleChange = (e) => {
     setFindBooks(e.target.value);
   };
-
 
   return (
     <div className="search-books">
@@ -70,7 +56,7 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
         </div>
       </div>
       <div className="search-books-results">
-        <SearchFilter filterBooks={filterBooks} updateShelf={updateShelf}/>
+        <SearchFilter filterBooks={filterBooks} updateShelf={updateShelf} />
       </div>
     </div>
   );
