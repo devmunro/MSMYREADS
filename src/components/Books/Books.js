@@ -19,8 +19,8 @@ const BookComponent = ({found, updateShelf}) => {
                   <SelectShelf found={found} updateShelf={updateShelf} />
 
               </div>
-              <div className="book-title">{found.title}</div>
-              <div className="book-authors">{found.author}</div>
+              <div className="book-title">{found.title ? found.title : "No title information"}</div>
+              <div className="book-authors">{found.authors ? found.authors : "No author information"}</div>
             </div>
           </li>
 
