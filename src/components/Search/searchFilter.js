@@ -5,7 +5,7 @@ const SearchFilter = ({ filterBooks, updateShelf }) => {
 
   if (filterBooks.length) {
     searchDisplay = filterBooks.map((found) => {
-      return <BookComponent found={found} updateShelf={updateShelf}/>;
+      return <BookComponent key={found.id} found={found} updateShelf={updateShelf}/>;
     });
   } else {
     searchDisplay = <p>No Items Found</p>;

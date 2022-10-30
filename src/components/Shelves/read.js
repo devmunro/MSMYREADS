@@ -10,7 +10,7 @@ const ReadShelf = ({ allBooks, updateShelf}) => {
 
   const readShelf = read.map((found) => {
     return (
-      <BookComponent found={found}  updateShelf={updateShelf} />
+      <BookComponent key={found.id} found={found}  updateShelf={updateShelf} />
     );
   });
 

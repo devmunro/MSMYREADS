@@ -6,6 +6,7 @@ import SearchFilter from "./searchFilter";
 export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
   const [findBooks, setFindBooks] = useState([]);
   const [filterBooks, setFilterBooks] = useState([]);
+  const [disabled, setDisabled] = useState("false")
 
 
 
@@ -20,6 +21,8 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
             setFilterBooks([]);
           } else {
 
+
+            
             
             setFilterBooks(data);
             
@@ -30,17 +33,28 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
       }
     };
     getResults(findBooks); //findbooks only
-  }, [findBooks, allBooks]); //findbooks only
+  }, [findBooks]); //findbooks only
 
 
 
-  const checkShelf =allBooks.find((match) => match.id === filterBooks.id)
-  checkShelf ? (checkShelf.shelf = filterBooks.shelf) : (filterBooks.shelf = "none") //added this to stop duplication of books
+  allBooks.find((match) => {  //added this to stop duplication of books
 
+    if (match.id === filterBooks.id) {
+     console.log("check here")
+      return  filterBooks.shelf = match.shelf
+       
+    } else {
+      return filterBooks.shelf = "none"
+    
+    }
+    
+      })
+      console.log(filterBooks)
 
   const handleChange = (e) => {
     setFindBooks(e.target.value);
   };
+
 
   return (
     <div className="search-books">

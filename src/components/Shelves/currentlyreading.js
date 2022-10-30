@@ -8,7 +8,7 @@ const CurrentShelf = ({ allBooks, updateShelf}) => {
 
   const CurrentlyReadingShelf = currentlyReading.map((found) => {
     return (
-      <BookComponent found={found} updateShelf={updateShelf}  />
+      <BookComponent key={found.id} found={found} updateShelf={updateShelf}  />
     );
   });
 
