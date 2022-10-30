@@ -20,10 +20,9 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
             setFilterBooks([]);
           } else {
 
-            const checkShelf =allBooks.find((match) => match.id === data.id)
-            checkShelf ? (checkShelf.shelf = data.shelf) : (data.shelf = "none") //added this to stop duplication of books
+            
             setFilterBooks(data);
-            console.log(data, "check here")
+            
           }
         });
       } else {
@@ -33,6 +32,10 @@ export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
     getResults(findBooks); //findbooks only
   }, [findBooks, allBooks]); //findbooks only
 
+
+
+  const checkShelf =allBooks.find((match) => match.id === filterBooks.id)
+  checkShelf ? (checkShelf.shelf = filterBooks.shelf) : (filterBooks.shelf = "none") //added this to stop duplication of books
 
 
   const handleChange = (e) => {
