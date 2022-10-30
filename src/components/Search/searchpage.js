@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import CloseSearch from "./closeSearch";
 import SearchFilter from "./searchFilter";
 
-export const SearchBar = ({ setScreenPage, updateShelf}) => {
+export const SearchBar = ({ setScreenPage, updateShelf, allBooks}) => {
   const [findBooks, setFindBooks] = useState([]);
   const [filterBooks, setFilterBooks] = useState([]);
+
+
+
 
   useEffect(() => {
     const getResults = (query) => {
@@ -16,7 +19,11 @@ export const SearchBar = ({ setScreenPage, updateShelf}) => {
 
             setFilterBooks([]);
           } else {
+
+            const checkShelf =allBooks.find((match) => match.id === data.id)
+            checkShelf ? (checkShelf.shelf = data.shelf) : (data.shelf = "none") //added this to stop duplication of books
             setFilterBooks(data);
+            console.log(data, "check here")
           }
         });
       } else {
@@ -24,9 +31,9 @@ export const SearchBar = ({ setScreenPage, updateShelf}) => {
       }
     };
     getResults(findBooks); //findbooks only
-  }, [findBooks]); //findbooks only
+  }, [findBooks, allBooks]); //findbooks only
 
-  console.log(filterBooks);
+
 
   const handleChange = (e) => {
     setFindBooks(e.target.value);

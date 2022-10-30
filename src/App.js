@@ -19,7 +19,6 @@ function App() {
     getAllBooks();
   }, [allBooks]);
 
-  console.log(allBooks);
 
  
     const updateShelf = (bookID, shelf) => {
