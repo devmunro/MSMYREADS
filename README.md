@@ -2,7 +2,7 @@
 
 This project was created by:
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ficon-icons.com%2Ficon%2Freact-button%2F151947&psig=AOvVaw20L79-p_9Lhx9fKBnU50g4&ust=1667218259146000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOjP4ZL2h_sCFQAAAAAdAAAAABAE"  width="50px" height="100px">
+<img src="https://cdn.icon-icons.com/icons2/2530/PNG/512/react_button_icon_151947.png"  width="100px" height="50px">
 
 ## TL;DR
 
